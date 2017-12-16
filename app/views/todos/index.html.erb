@@ -1,6 +1,6 @@
 <div class="container">
   <div class="page-header">
-    <h2>代辦事項</h2>
+    <h2>待辦事項</h2>
   </div>
 
 <table class="table table-striped table-condensed">
@@ -9,7 +9,6 @@
       <td><%= '名稱' %></td>
       <td><%= '內容' %></td>
 
-      <td><%= '顯示詳細' %></td>
       <td><%= '編輯' %></td>
       <td><%= '刪除' %></td>
     </tr>
@@ -19,7 +18,6 @@
     <td><%= todo.name %></td>
     <td><%= todo.note %></td>
 
-    <td><%= link_to 'Show', todo_path(todo) %></td>
     <td><%= link_to 'Edit', edit_todo_path(todo) %></td>
     <td><%= link_to 'Destroy', todo_path(todo), method: :delete, data:{ confirm: "Are you sure?" } %></td>
   </tr>
