@@ -33,11 +33,19 @@ class TodosController < ApplicationController
   end
 
   def destroy
-    @todo.destroy
-
-    redirect_to todos_url
+    if @todo.can_destroy?
+      @todo.destroy
+      # 跳出警告訊息，告知成功刪除
+      flash[:alert] = 'List was successfully deleted !!'
+      # 重新發出 request，導往列表頁。對瀏覽器來說會重整頁面
+      redirect_to todos_path
+    else
+      # 跳出警告訊息，告知過期
+      flash[:alert] = 'List is overdue, can not be deleted !!'
+      # 重新發出 request，導往列表頁。對瀏覽器來說會重整頁面
+      redirect_to todos_path
+    end
   end
-
 
   private
 
